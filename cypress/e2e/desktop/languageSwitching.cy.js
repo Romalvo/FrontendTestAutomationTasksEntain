@@ -1,5 +1,5 @@
 describe('Language Switching Test', () => {
-    before(() => {
+    beforeEach(() => {
         cy.setDesktopViewport();
         cy.visit('https://www.boostcasino.com');
     });
@@ -20,4 +20,12 @@ describe('Language Switching Test', () => {
 
         cy.url().should('include', '/ee');
     });
+
+    it('should show the language dropdown and switch to Russian',() => {
+        cy.get('[data-cy="navDropdown-language"]').click();
+        
+        cy.get('.sc-crXcEl').contains('RU').click();
+        
+        cy.url().should('include', '/ru');
+    })
 })

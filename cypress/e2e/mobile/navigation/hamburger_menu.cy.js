@@ -1,8 +1,10 @@
+import viewports from "../../../fixtures/viewports";
 describe('Hamburger Menu navigation on mobile',() => {
     beforeEach(() => {
-        cy.viewport('iphone-x');
+        cy.viewport(viewports.mobile.width, viewports.mobile.height);
 
-        cy.visit('https://boostcasino.com')
+        cy.visit('https://boostcasino.com');
+        cy.get('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll').click();
     });
 
     it('should display the hamburger menu and its entries', () =>{
